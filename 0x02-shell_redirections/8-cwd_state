@@ -1,0 +1,14 @@
+
+
+#!/bin/bash
+
+var=`ls -la`
+ if [ -f ls_cwd_content ] 
+then 
+
+echo $var>> ls_cwd_content
+else
+
+echo $var> ls_cwd_content
+
+fi 
