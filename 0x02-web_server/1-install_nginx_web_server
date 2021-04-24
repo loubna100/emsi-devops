@@ -8,7 +8,7 @@ apt-get install -y nginx
 mkdir /usr/share/nginx/html
 touch /usr/share/nginx/html/index.html
 echo "Holberton School for win !" > /usr/share/nginx/html/index.html
-printf %s "
+echo "
      server {
           listen      80 default_server;
           listen      [::]:80 default_server;
