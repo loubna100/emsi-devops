@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
-apt-get update
-apt-get install -y nginx
-mkdir /usr/share/nginx/html
-touch /usr/share/nginx/html/index.html
-touch /usr/share/nginx/html/404.html
-echo "Holberton School" > /usr/share/nginx/html/index.html
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/404.html
-printf %s "
+#Configure Nginx to Use Custom Error Page 
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/notFound.html
+echo >"
+ 
     server {
         listen      80 default_server;
         listen      [::]:80 default_server;
@@ -15,14 +11,17 @@ printf %s "
             root      /usr/share/nginx/html/;
             index     index.html;
         }
-        location /redirect_me {                                                       
-            return 301 https://www.youtube.com/watch?v=8s22PZRXAIY;                                                 
+
+error_page 404 /notFound.html;
+        location =/not_found.html {                                                       
+           root      /usr/share/nginx/html/;
+            internal;                                        
         }
-        error_page 404 /404.html;
-        location /404 {
-            internal;
-        } 
+
+
     }
+
+
 " > /etc/nginx/sites-available/default
 
 service nginx restart
