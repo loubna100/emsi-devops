@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-apt-get update
-apt-get install -y nginx
-mkdir /usr/share/nginx/html
-touch /usr/share/nginx/html/index.html
-echo "Holberton School" > /usr/share/nginx/html/index.html
-printf %s "
+#in this script i configure   ngninx to make redrection  to another page contains youtube video 
+
+echo  "
     server {
         listen      80 default_server;
         listen      [::]:80 default_server;
@@ -14,7 +11,7 @@ printf %s "
             index     index.html;
         }
         location /redirect_me {                                                       
-            return 301 https://www.youtube.com/watch?v=8s22PZRXAIY;                                                 
+            rewrite ^ https://www.youtube.com/watch?v=8s22PZRXAIY permanent;                                                 
         }
     }
 " > /etc/nginx/sites-available/default
