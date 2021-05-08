@@ -7,4 +7,4 @@
 #Number of bits in the created key to be created 4096
 #The created key must be protected by the passphrase betty
 touch ~/.ssh/holberton 
-ssh-keygen -f ~/.ssh/holberton -t rsa -b 4096 -N betty 
+ssh-keygen -f ~/.ssh/holberton  -b 4096 -N betty 
