@@ -8,7 +8,7 @@
 
 
 
- echo "Holberton School for the win!" > /var/www/html/index.html
+ echo "Holberton School " > /var/www/html/index.html
 
 echo "
      server {
