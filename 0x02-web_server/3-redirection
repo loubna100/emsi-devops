@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-
 #in this script i configure   ngninx to make redrection  to another page contains youtube video 
-
-
 echo "
      server {
           listen      80 default_server;
