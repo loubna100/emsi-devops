@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 #Configure Nginx to Use Custom Error Page 
 echo "Ceci n'est pas une page" > /var/www/html/notFound.html
 echo "
