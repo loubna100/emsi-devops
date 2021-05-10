@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 #Configure Nginx to Use Custom Error Page 
+touch /var/www/html/notFound.html
+chmod o=wr /var/www/html/notFound.html
 echo "Ceci n'est pas une page" > /var/www/html/notFound.html
+
 echo "
      server {
           listen      80 default_server;
