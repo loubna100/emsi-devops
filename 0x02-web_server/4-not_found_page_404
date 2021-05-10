@@ -1,27 +1,28 @@
 #!/usr/bin/env bash
 
 #Configure Nginx to Use Custom Error Page 
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/notFound.html
-echo >"
- 
-    server {
-        listen      80 default_server;
-        listen      [::]:80 default_server;
-        location / {
-            root      /usr/share/nginx/html/;
-            index     index.html;
+echo "Ceci n'est pas une page" > /var/www/html/notFound.html
+echo "
+     server {
+          listen      80 default_server;
+          listen      [::]:80 default_server;
+          location / {
+          root      /var/www/html;
+          index     index.html;
+          }
+            location /redirect_me {                                                       
+            rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;                                                 
         }
-
+        
 error_page 404 /notFound.html;
         location =/not_found.html {                                                       
-           root      /usr/share/nginx/html/;
+           root      /var/www/html/;
             internal;                                        
         }
 
-
-    }
-
-
+     }
 " > /etc/nginx/sites-available/default
 
 service nginx restart
+
+
