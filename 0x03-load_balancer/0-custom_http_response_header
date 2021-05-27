@@ -3,23 +3,26 @@
 #The name of the custom HTTP header must be X-Served-By
 #The value of the custom HTTP header must be the hostname of the server Nginx is running on
 
+
 echo "
-    server {
-        listen      80 default_server;
-        listen      [::]:80 default_server;
-        add_header X-Served-By $HOSTNAME;
-        location / {
-            root      /usr/share/nginx/html/;
-            index     index.html;
+     server {
+          listen      80 default_server;
+          listen      [::]:80 default_server;
+           add_header X-Served-By $HOSTNAME;
+          location / {
+          root      /var/www/html;
+          index     index.html;
+          }
+            location /redirect_me {                                                       
+            rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;                                                 
         }
-        location /redirect_me {
-            return 301 https://www.youtube.com/watch?v=8s22PZRXAIY;
+        
+error_page 404 /notFound.html;
+        location =/not_found.html {                                                       
+           root      /var/www/html/;
+            internal;                                        
         }
-        error_page 404 /404.html;
-        location /404 {
-            internal;
-        } 
-    }
+     }
 " > /etc/nginx/sites-available/default
 
 service nginx restart
