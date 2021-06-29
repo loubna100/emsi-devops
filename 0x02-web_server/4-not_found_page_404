@@ -17,7 +17,7 @@ echo "
         }
         
 error_page 404 /notFound.html;
-        location =/not_found.html {                                                       
+        location =/notFound.html {                                                       
            root      /var/www/html/;
             internal;                                        
         }
