@@ -38,7 +38,7 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http                                                                                
         errorfile 504 /etc/haproxy/errors/504.http                                                                                
 listen www        
-   bind :80                                                                                                                  
+   bind *:80                                                                                                                  
         balance roundrobin                                                                                                        
         server gc-3129-web-02-1617751021 34.75.47.199 check                                                                     
         server gc-3129-web-01-1618037739 34.75.79.90 check      
