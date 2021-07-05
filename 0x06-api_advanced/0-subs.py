@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""
-get number of subscribers for a subredit 
+"""get number of subscribers for a subredit 
 """
 import requests
-
 def number_of_subscribers(subreddit):
     
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
