@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # Installs HAproxy 
-#Configure HAproxy with version equal or greater than 1.5 
+     
 apt-get update
-apt-get -y install software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.1 --yes
+
 
 apt-get -y install haproxy 
 
@@ -38,11 +37,10 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http                                                                                
         errorfile 504 /etc/haproxy/errors/504.http                                                                                
 listen www        
-   bind *:80                                                                                                                  
+   bind :80                                                                                                                  
         balance roundrobin                                                                                                        
-        server gc-3129-web-02-1617751021 34.75.47.199 check                                                                     
-        server gc-3129-web-01-1618037739 34.75.79.90 check      
+        server 3172-web-01	 34.75.79.90:80 check                                                                     
+        server 3172-web-02	35.237.73.35:80 check      
 " > /etc/haproxy/haproxy.cfg
 
-service haproxy start                                                 
- 
+service haproxy start 
