@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
-#Configure Nginx to Use Custom Error Page 
+#Configure Nginx to Use Custom Error Page
+apt-get update
+apt-get install -y nginx
 touch /var/www/html/notFound.html
 chmod o=wr /var/www/html/notFound.html
-echo "Ceci n'est pas une page" > /var/www/html/notFound.html
 
+echo "Ceci n'est pas une page" > /var/www/html/notFound.html
+echo "Holberton School" >/var/www/html/index.html
 echo "
      server {
           listen      80 default_server;
