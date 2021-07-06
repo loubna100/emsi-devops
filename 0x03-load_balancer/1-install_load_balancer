@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
-# Installs HAproxy with the following configurations:
-#    Listens on port 80.
-#    Distribute requests using a roundrobin algorithm
-#    server gc-3129-web-02-1617751021 35.237.199.163                                                                      
-#    server gc-3129-web-01-1618037739 35.231.56.29      
+# Installs HAproxy 
+     
 apt-get update
-apt-get -y install software-properties-common
-add-apt-repository ppa:vbernat/haproxy-2.1 --yes
+
 
 apt-get -y install haproxy 
 
-printf %s"global                                                                                                                            
+echo "global                                                                                                                            
         log /dev/log    local0                                                                                                    
         log /dev/log    local1 notice                                                                                             
         chroot /var/lib/haproxy                                                                                                   
