@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
-# install ngninx web server 
-# create default nginx dirctory 
-# configure nginx 
-# we can display index.html using command curl localhost 
+# install ngninx web server we can display index.html using command curl localhost 
 
 
-
+apt-get update
+apt-get install -y nginx
 
 touch /var/www/html/index.html
  echo "Holberton School" > /var/www/html/index.html
