@@ -31,8 +31,8 @@ frontend lb_serv
   default_backend app_server
 backend app_server
     balance roundrobin
-   server gc-3129-web-02-1617751021 34.75.47.199 check                                                                     
-        server gc-3129-web-01-1618037739 34.75.79.90 check 
+   server 3172-web-01	34.75.79.90:80 check                                                                     
+    server 3172-web-02	35.237.73.35:80 check 
 " >/etc/haproxy/haproxy.cfg
 
 service haproxy restart
